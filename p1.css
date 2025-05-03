@@ -1,0 +1,198 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #2c0b0e, #5a1a1e); /* Black & Burgundy */
+    color: #f5f5f5;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Ensures stacking of elements */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Heading with Effects */
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2), 4px 4px 20px rgba(255, 0, 0, 0.3);
+    display: inline-block;
+    animation: pulseEffect 2s infinite alternate, fadeIn 1s ease-in-out;
+}
+
+/* Quiz Container with Effects */
+.quiz-container {
+    width: 50%;
+    background: rgba(30, 10, 12, 0.85); /* Darkened Burgundy Glassmorphism */
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out, floatEffect 3s infinite alternate ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Glowing Effect on Hover */
+.quiz-container:hover {
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transform: scale(1.02);
+}
+
+/* Question */
+#question-text {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    color: #f2c2c7; /* Light Burgundy */
+}
+
+/* Buttons */
+button {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+/* Primary Button */
+#next-btn {
+    background: #7a1b21;
+    color: white;
+    display: none;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+#next-btn:hover {
+    background-color: #5a1a1e;
+}
+
+/* Option Buttons - Black & Burgundy Shades */
+.option {
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #3b0c12; /* Dark Burgundy */
+    border: 2px solid #7a1b21; /* Burgundy */
+    color: #f5f5f5;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.option:hover {
+    background-color: #7a1b21;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Correct & Wrong Answer Styling */
+.correct {
+    background-color: #4CAF50 !important; /* Green */
+    color: white !important;
+    border: 2px solid #2d7d46 !important;
+}
+
+.wrong {
+    background-color: #D32F2F !important; /* Red */
+    color: white !important;
+    border: 2px solid #b71c1c !important;
+}
+
+/* Score Display */
+#score-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f8f1e5;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Effect */
+@keyframes floatEffect {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+/* Glowing and Scaling Effect for h1 */
+@keyframes pulseEffect {
+    from {
+        transform: scale(1);
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2), 4px 4px 10px rgba(255, 0, 0, 0.3);
+    }
+    to {
+        transform: scale(1.05);
+        text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.5), 5px 5px 20px rgba(255, 0, 0, 0.5);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quiz-container {
+        width: 85%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #question-text {
+        font-size: 18px;
+    }
+
+    .option {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    #score-text:empty {
+        display: none;
+    }
+    
+}
